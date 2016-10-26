@@ -1,4 +1,3 @@
-# Testing 2222
 
 # R Vocabulary 
 
@@ -43,6 +42,18 @@ runif - generates random values from a uniform distribution
 rpois - generates random values from a poisson distribution with a lambda parameter 
 rank - returns the sample ranks of values in a vector 
 sort & order - sorts or orders a vector or factor into ascending or descending order 
+outer - a function that applies a function on two arrays (i.e. x and y) where FUN is a function for the arugments x and y
+  outer(X, Y, FUN = "*", ...)
+  X %o% Y
+rep - replicates values 
+rowSums & colSums - finds the sums and means 
+seq - generates sequences 
+source - reads in R code from a file or a URL 
+which - gives the TRUE indices of a logical object, allowing for array indices 
+which.min & which.max - determines the location of the first minimum or maximum of a numeric or logical vector
+setdiff, intersect & union - union of sets for intersection, difference, equality and membership of 2 vectors 
+table - cross-classify factors to build contingency table of counts at each combo of factor levels 
+with - evaluates an R expression in an environment of your data 
 
 ################################################
 ## Bonus exercises #############################
@@ -57,3 +68,9 @@ were all going direct to Heaven, we were all going direct the other
 way- in short, the period was so far like the present period, that
 some of its noiosiest authorities insisted on its being received, for
 good or for evil, in the superlative degree of comparison only."
+
+# Trying different things 
+x <- grepl("was",bonus.text)
+x <- regexpr("x*the",bonus.text)
+regex("\\w{n}",bonus.text)
+strsplit(bonus.text, ",")
