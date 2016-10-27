@@ -41,15 +41,21 @@ for(i in 1:20){
 }
 
 # Population Growth 
-# Assign parameters 
-y <- population size
+y <- population growth
 t <- Time 
 a <- parameter1
 b <- parameter2
-popsize <- function(a,b,c,t){
+
+popgrowth <- function(a,b,c,t){
 y <- a*exp(-b*exp(-c*t))
 return(y)
 } 
-print(popsize(14,35,1000,435))
-print(popsize(1200,15,37,365))
+
+popsize <- popgrowth(a=88,b=24,c=37,t=147)
+print(popsize)
+popsize <- popgrowth(a=23,b=13,c=9,t=50)
+
+# Plotting population growth 
+
+
 
