@@ -153,3 +153,10 @@ Error in 1:dim(height) : argument of length 0 #I'm not sure what this means
 Error in printBox(dim(3, 9)) : 
   argument "width" is missing, with no default
 
+# 12. Species abundance using a Poisson distribution 
+nsites <- c(1,2,3,4,5,6)
+abundance <- function(nsites){
+  for(i in nsties){
+
+plot(abundance,ppois(abundance,1),type="l")
+plot(0:25,ppois(p=p,lambda=10),ylab="Cumulative distributin",xlab="y")
