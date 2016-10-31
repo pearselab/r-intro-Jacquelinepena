@@ -127,7 +127,7 @@ printBox(5,13)
   
 # 11. Box with arbitrary text 
   # I am not sure if this works. It seems that the for loops work
-  printBox <- function(height,width){
+  printBox <- function(dim){
     # Top of the Box
     for (i in dim(width)){
       cat("jkl")
