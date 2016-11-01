@@ -1,4 +1,4 @@
-# Problems completed: 1-6, 9, 10 
+# Problems completed: 1-6, 9, 10, 11
 
 # 1. Printing out numbers from 20 to 10 
 for(i in 20:10){ 
@@ -127,31 +127,29 @@ printBox(5,13)
   
 # 11. Box with arbitrary text 
   # I am not sure if this works. It seems that the for loops work
-  printBox <- function(dim){
+  printBox <- function(height, width){
     # Top of the Box
-    for (i in dim(width)){
+    for (i in 1:width){
       cat("jkl")
     }
     # New line
     cat("\n")
+    cat("jkl      jkl\n")
     
     # Middle of the box
-    for (x in 1:dim(height)){
-      cat("j hey j")
+    for (x in height){
+      cat("jkl hey  jkl")
     }
 
     cat("\n")
+    cat("jkl      jkl\n")
     # Bottom of the Box
-    for (i in dim(width)){
+    for (i in 1:width){
       cat("jkl")
     }
   }
-printBox(3,9)
-# Errors I'm getting 
-Error in 1:dim(height) : argument of length 0 #I'm not sure what this means
-> printBox(dim(3,9))
-Error in printBox(dim(3, 9)) : 
-  argument "width" is missing, with no default
+printBox(4,4)
+
 
 # 12. Species abundance using a Poisson distribution 
 nsites <- c(1,2,3,4,5,6)
@@ -160,3 +158,4 @@ abundance <- function(nsites){
 
 plot(abundance,ppois(abundance,1),type="l")
 plot(0:25,ppois(p=p,lambda=10),ylab="Cumulative distributin",xlab="y")
+
