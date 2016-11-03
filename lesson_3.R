@@ -1,4 +1,4 @@
-# Problmes completed: 1-6
+# Problmes completed: 1-7
 
 # 1. Cat class 
 New.Cat <- function(weight,breed){
@@ -27,6 +27,10 @@ new.point <- function(x,y){
 
 point1 <- new.point(x=5,y=9)
 point2 <- new.point(x=10,y=14)
+point3 <- new.point(x=3,y=4)
+point4 <- new.point(x=11,y=15)
+point5 <- new.point(x=2,y=3)
+point6 <- new.point(x=9,y=6)
 
 
 # 3. Distance between two points 
@@ -43,81 +47,60 @@ point2 <- point.distance(x=10,y=14)
 point.distance(point1,point2)
 
 # 4. Line class 
-new.line <- function(point1,point2,...){
-  output <- list(point1=point1,point2=point2)
+new.line <- function(point1,point2){
+  output <- list(point1,point2)
   class(output) <- "line"
   return(output)
 }
-
-line.distance <- function(point1,point2,...){
-  if(! inherits(point1, "line1") | !inherits(point2, "line2"))
-  stop("Lines!")
-  output <- line(point1$x$y,point2$x$y)
-  return(output)
-}
-
-point1 <- new.point(x=5,y=9)
-point2 <- new.point(x=10,y=14)
-point3 <- new.point(x=3,y=4)
-point4 <- new.point(x=11,y=15)
-point5 <- new.point(x=2,y=3)
-point6 <- new.point(x=9,y=6)
 
 line1 <- new.line(point1,point2)
 line2 <- new.line(point3,point4)
 line3 <- new.line(point5,point6)
 
-# 5. Polygon Class 
-new.polygon <- function(line1,line2,line3...){
-  output <- list(line1=line1,line2=line2,line3=line3)
-  class(output)
-}
+plot(point1,point2)
 
-create.polygon <- function(line1,line2,line3...){
-  if(! inherits(line1, "line1") | ! inherits(line2, "line2") | ! inherits(line3, "line3"))
-  stop("Lines!")
-  output <- polygon(line1,line2,line3)
+# 5. Polygon Class (Jenessa and I worked on problem 5-7 together which is why our code looks similar)
+new.polygon <- function(points){
+  output <- vector("list", legnth(points))
+  for(i in 1:(lenght(points)-1)){
+  output[[i]] <- new.line(points[[i]],points[[i+1]])
+  print(i)
+  }
+  class(output) <- "polygon"
+  output[[length(points)]] <- new.line(points[[length(points)]],points[[1]])
   return(output)
 }
-
-Polygon1 <- new.polygon(line1,line2,line3)
+create.polygon <- list(point1,point2,point3)
+polygon <- new.polygon(create.polygon)
+polygon 
 
 # 6. Plot methods for point and line objects 
 # Plot Class or my points 
-point.plot <- function(point1,point2,...){
-  output <- list(point1=point1,point2=point2)
-  class(output)
+point.plot <- function(point){
+  plot(point$x,point$y,xlim=c(0,20),ylim=c(0,20))
 }
-create.plot <- function(point1,point2,...){
-  if(! inherits(point1,"point") | ! inherits(point2, "point"))
-  output <- plot(NA,xlim=c(0,15),ylim=c(0,15),xlab="x",ylab="y",type='p')
-  points(point1$x,point1$y)
-  points(point2$x,point2$y)
-  points(point3$x,point3$y)
+
+line.plot <- function(line){
+  if(! inherits(point1,"point") | ! inherits(point2, "point")){
+  stop("Lots of points!")
   return(output)
+  }
+  segments(line[[1]]$x, line[[1]]$y, line[[2]]$x, line[[2]]$y)
 }
 
-point1 <- new.point(x=5,y=9)
-point2 <- new.point(x=10,y=14)
-point3 <- new.point(x=3,y=4)
+line.plot(line1,line2,line3)
 
-Plot <- create.plot(point1,point2,point3)
-
-# Plot class or my lines 
-line.plot <- function(line1,line2,...){
-  output <- list(line1=line1,line2=line2)
-  class(output)
-}
-create.lineplot <- function(line1,line2,...){
-  if(! inherits(line1, "line") | L! inherits(line2, "line"))
-  output <- plot(NA,xim=c(0:15),ylim=c(0,15),xlab="x",ylab="y",type='l')
-  lines(line1)
-  lines(line2)
-  return(output)
+# 7. Polygon plot 
+polygon.plot <- function(polygon){
+  for(i in 1:(length(polygon))){
+    print(i)
+    line.plot(polygon[[i]])
+    print(i)
+  }
 }
 
-line1 <- new.line(point1,point2)
-line2 <- new.line(point3,point4)
+polygon.plot(polygon)
 
-plot <- create.lineplot(line1,line2)
+  
+  rm(list=ls())
 
