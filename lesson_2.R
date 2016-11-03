@@ -1,4 +1,4 @@
-# Problems completed: 1-6, 9, 10, 11
+# Problems completed: 1-7, 9-13,
 
 # 1. Printing out numbers from 20 to 10 
 for(i in 20:10){ 
@@ -68,7 +68,45 @@ plot(popsize, type='l')
 
 
 # 7. Plotting population growth with y > a in blue and y > b in red
-plot(popsize, type='l', col=ifelse(popsize > a, 'blue', ifelse(popsize > b, 'red')))
+plot(popsize, type='l', 
+     col="blue" if else(popsize > a), col="red" if else(popsize > b)))
+plot(popsize,type=1)
+
+popgrowth <- function(a,b,c,t){
+  for(i in popsize)
+    popsize[i] <- y 
+    if(y > a){
+      color[i] <- "blue"
+    } else {
+      color[i] <- "black"
+    }
+  if(y > b){
+    color[i] <- "red"
+  } else {
+    color[i] <- "black"
+  }
+}
+
+popsize <- popgrowth(a=c(4,13,19,23),b=c(5,7,11,13),c=c(2,6,9,15),t=c(25,50,15,45))
+plot(popsize, type='l')
+
+# 8 I'm not sure if this makes sense. This one is difficult for me
+
+popgrowth <- function(a,b,c,t){
+  for(i in popsize)
+    popsize[i] <- y 
+  if(y > a & b){
+    color[i] <- "purple"
+  } else {
+    color[i] <- "black"
+  }
+  if(y <- 3==4 | 2==2){
+    color[i] <- "red"
+  } else {
+    color[i] <- "black"
+  }
+}
+
 
 # 9. 3x5 box 
 printBox <- function(height, width){
@@ -152,10 +190,28 @@ printBox(4,4)
 
 
 # 12. Species abundance using a Poisson distribution 
-nsites <- c(1,2,3,4,5,6)
-abundance <- function(nsites){
-  for(i in nsties){
+# I think that the Bernoulli is a special case of a bionomial distribution (this is based on what I learned from Bayesian)
+# nsites  <- number of sites 
+# prob <- probability of species at nsties 
+# ave <- average abundance 
+abundance <- function(nsites,prob,ave){
+  y1 <- rbinom(nsties,prob,ave)
+  y2 <- rpois(nsties,ave)
+  return(y1*y2)
+}
 
-plot(abundance,ppois(abundance,1),type="l")
-plot(0:25,ppois(p=p,lambda=10),ylab="Cumulative distributin",xlab="y")
+# 13. I hope the too many y's are not confusing. 
+species.abundance <- function(species,sites){
+  abundmatrix <- matrix(NA, nrow=species, ncol=sites)
+  for(i in 1:species){
+  prob <- runif(10,min=0,max=1)
+  lambda <- runif(1,min=1,max=50)
+  y1 <- rbinom(sites,prob,1)
+  y2 <- rpois(sites,lambda)
+  y3 <- (y1*y2)
+  abundmatrix[i,] <- y(y3)
+  }
+  return(y(abunmatrix))
+}
+
 

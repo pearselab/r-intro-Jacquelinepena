@@ -44,10 +44,8 @@ overall.summary(y)
 overall.summary(cbind(plants,animals,water))
 overall.summary(plants)
 
-  
-
-  
-
-  
-
-
+# 5. 
+DNA.sequence <- "ACGATATACGA" 
+matrix(DNA.sequence, nrow=5,ncol=2)
+cut(DNA.sequence,b=3)
+grouping()

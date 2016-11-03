@@ -1,4 +1,4 @@
-# Problmes completed: 1-7
+# Problmes completed: 1-8
 
 # 1. Cat class 
 New.Cat <- function(weight,breed){
@@ -34,7 +34,7 @@ point6 <- new.point(x=9,y=6)
 
 
 # 3. Distance between two points 
-point.distance <- function(point1,point2,...){
+point.distance <- function(point1,point2){
   if(!inherits(point1, "point") | !inherits(point1, "point"))
     stop("Points!")
   output <- (sqrt(point2$x-point1$x)^2+(point2$y-point1$y)^2)
@@ -101,6 +101,25 @@ polygon.plot <- function(polygon){
 
 polygon.plot(polygon)
 
+# 8. 
+#Create a canvas object that the add function can add point, line, circle, and polygon objects to. 
+#Write plot and print methods for this class.
+
+canvas <- function(points,lines,circles){
+  output <- list(points=points,lines=lines,circles=circles)
+  class(output) <- "lines, points, & circles...Oh my!"
+  return(output)
+}
+
+new.canvas <- function(points,lines,circles){
+  plot(point1$x,point1$y,point2$x,point2$y,xlim=c(0,20),ylim=c(0,20))
+  segments(line[[1]]$x, line[[1]]$y, line[[2]]$x, line[[2]]$y)
+  circle <- seq(0,2*pi,length=100)
+  coords <- circle(rbind(10+sin(circle)*2, 20+cos(circle)*2))
+  plot(coords)
+}  
+
+plot(canvas)
   
   rm(list=ls())
 
