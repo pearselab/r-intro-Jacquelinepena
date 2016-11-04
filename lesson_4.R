@@ -1,4 +1,4 @@
-# Problems completed: 1-4 
+# Problems completed: 1-5
 
 # 1. 
 y <- replicate(10,(rnorm(n=1,mean=runif(1,0,10),sd=runif(1,0,10))))
@@ -50,7 +50,25 @@ codon <- c("ACG", "ATA", "ACG")
 expand.grid(codon, codon1=(1:5),codon2=(1:5))
 matrix <- matrix(codon,nrow=3,ncol=3)
 matrix <- matrix(DNA.sequence,nrow=3,ncol=3)
-sapply
+codons <- sapply(seq(from=1, to=3),function(i))
+input <- expand.grid(codon, codon1=(1:5),codon2=(1:5))
+input
+codons <- function(input){
+  for(i in input)
+    sapply(seq(from=1,to=x(input),3),function(i), sequence(input,i,i+2))
+}
+
+apply(input,1,sum)
+
+input <- matrix(1:4, 2)
+input
+[,1] [,2]
+[1,]    1    3
+[2,]    2    4
+apply(input, 1, sum)
+[1] 4 6
+apply(input, 2, sum)
+[1] 3 7
 
 # 6. 
 DNA <-list("ACGATATACGA","GATGAAAT","GCTATGAAC","TGGAGGAATCCTA","CGTATAGCTCAA")

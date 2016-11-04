@@ -1,4 +1,4 @@
-# Problmes completed: 1-9
+# Problmes completed: 1-10
 
 # 1. Cat class 
 New.Cat <- function(weight,breed){
@@ -128,26 +128,48 @@ coords <- circle(rbind(10+sin(circle)*2,30+cos(circle)*2))
 plot(coords)
 
 # 10 This one needs work...
-area.polygon <- function(polygon){
-  if(! inherits(polygon, "polygon"))
-    stop("crazy polygon")
-  output <- (0.5*(line1$point$1,line1$point2,line2$point3,line2$point4)*2*(10*sqrt(3)))
+# Class for the perimeter 
+perimeter <- function((height+width)*2){
+  output <- list(height=height,width=width)
+  class(output) <- "perimeter"
   return(output)
 }
 
-    area = 1/2 x perimeter x apothem (10*sqrt(3))
+new.perimeter <- function((height+width)*2){
+  if(! inherits(polygon, "polygon"))
+  stop("perimeter")
+  plot(point1$x,point1$y,point2$x,point2$y,xlim=c(0,20),ylim=c(0,20))
+  output <- segments((line[[1]]$x, line[[1]]$y) + (line[[2]]$x, line[[2]]$y))*2
+  return(output)
+}
+    
+# area of a polygon = 1/2 x perimeter x apothem (10*sqrt(3))
+area.polygon <- function(polygon){
+  if(! inherits(polygon, "polygon"))
+  stop("crazy polygon")
+  output <- (0.5*(new.perimeter)*10*sqrt(3))
+  return(output)
+}
 
-  point.distance <- function(point1,point2){
-    if(!inherits(point1, "point") | !inherits(point1, "point"))
-      stop("Points!")
-    output <- (sqrt(point2$x-point1$x)^2+(point2$y-point1$y)^2)
-    return(output)
-  }
-  
-  point1 <- point.distance(x=5,y=9)
-  point2 <- point.distance(x=10,y=14)
-  
-  point.distance(point1,point2)
-  
+# area of a circle 
+r <- radius 
+pi <- 3.14
+new.circle <- function(circle){
+  output <- list(circle=circle)
+  class(output) <- "circle"
+  return(output)
+}
+area.circle <- function(circle){
+  if(! inherits(circle, "circle"))
+    stop("area of a circle")
+  area <- pi*r^2 
+  return(output)
+}
+
+# 13.  Add support for circle objects to your canvas. 
+# this is from # 8 
+circle <- seq(0,2*pi,length=100)
+coords <- circle(rbind(10+sin(circle)*2, 20+cos(circle)*2))
+plot(coords)
    rm(list=ls())
 

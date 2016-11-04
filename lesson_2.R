@@ -268,11 +268,9 @@ dead <- function(x){
     longitude[i] <- longitude[i-1] + rnorm(1,0,1)
   }
   print(distance)
-  if(distance[i] >= 15){
     return(i)
-    break
-  }
   plot(x=latitude,y=longitude)
 }
 
-dead(100)
+# this doesn't seem right...
+plot(dead(100))
