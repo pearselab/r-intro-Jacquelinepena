@@ -1,4 +1,4 @@
-# Problmes completed: 1-8
+# Problmes completed: 1-9
 
 # 1. Cat class 
 New.Cat <- function(weight,breed){
@@ -120,6 +120,34 @@ new.canvas <- function(points,lines,circles){
 }  
 
 plot(canvas)
+# 9. 
+# Implement a circle object that takes a point and a radius and stores a circle.
+# Don't make a circle out of lines! 
+circle <- seq(0,5*pi,length=50)  
+coords <- circle(rbind(10+sin(circle)*2,30+cos(circle)*2))
+plot(coords)
+
+# 10 This one needs work...
+area.polygon <- function(polygon){
+  if(! inherits(polygon, "polygon"))
+    stop("crazy polygon")
+  output <- (0.5*(line1$point$1,line1$point2,line2$point3,line2$point4)*2*(10*sqrt(3)))
+  return(output)
+}
+
+    area = 1/2 x perimeter x apothem (10*sqrt(3))
+
+  point.distance <- function(point1,point2){
+    if(!inherits(point1, "point") | !inherits(point1, "point"))
+      stop("Points!")
+    output <- (sqrt(point2$x-point1$x)^2+(point2$y-point1$y)^2)
+    return(output)
+  }
   
-  rm(list=ls())
+  point1 <- point.distance(x=5,y=9)
+  point2 <- point.distance(x=10,y=14)
+  
+  point.distance(point1,point2)
+  
+   rm(list=ls())
 

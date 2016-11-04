@@ -44,8 +44,14 @@ overall.summary(y)
 overall.summary(cbind(plants,animals,water))
 overall.summary(plants)
 
-# 5. 
-DNA.sequence <- "ACGATATACGA" 
-matrix(DNA.sequence, nrow=5,ncol=2)
-cut(DNA.sequence,b=3)
-grouping()
+# 5.  
+DNA.sequence <- "ACGATATACGA"
+codon <- c("ACG", "ATA", "ACG")
+expand.grid(codon, codon1=(1:5),codon2=(1:5))
+matrix <- matrix(codon,nrow=3,ncol=3)
+matrix <- matrix(DNA.sequence,nrow=3,ncol=3)
+sapply
+
+# 6. 
+DNA <-list("ACGATATACGA","GATGAAAT","GCTATGAAC","TGGAGGAATCCTA","CGTATAGCTCAA")
+

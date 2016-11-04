@@ -1,4 +1,4 @@
-# Problems completed: 1-7, 9-13,
+# Problems completed: 1-15 
 
 # 1. Printing out numbers from 20 to 10 
 for(i in 20:10){ 
@@ -91,6 +91,34 @@ popsize <- popgrowth(a=c(4,13,19,23),b=c(5,7,11,13),c=c(2,6,9,15),t=c(25,50,15,4
 plot(popsize, type='l')
 
 # 8 I'm not sure if this makes sense. This one is difficult for me
+# I'm trying to different loops to see which one seems to work 
+popgrowth <- function(a,b,c,t){
+  for(i in popsize)
+    vec[i] <- popsize 
+  if(b > a){
+    if(popsize > b){
+      color[i] <- "red"
+    }
+    if(popsize > a & popsize < b){
+      color[i] <- "blue"
+    } else {
+      color[i] <- "black"
+    }
+  }
+  if(a > b){
+    color[i] <- "blue"
+  }
+  if(popsize > b & popsize <a){
+    color[i] <- "red"
+  } else {
+    color[i] <- "black"
+  }
+  if(popsize > a & popsize > b){
+    color[i] <- "purple"
+  }
+}
+
+
 
 popgrowth <- function(a,b,c,t){
   for(i in popsize)
@@ -214,4 +242,37 @@ species.abundance <- function(species,sites){
   return(y(abunmatrix))
 }
 
+# 14. 
+biologist <- function(x){
+  latitude <- c(5,10,15,20,25)
+  longitude <- c(5,10,15,20,25)
+  for(i in latitude){
+    latitude[i] <- latitude[i] + rnorm(1,0,1)
+  }
+  for(i in longitude){
+    longitude[i] <- longitude[i] + rnorm(1,0,1)
+  }
+  plot(x=latitude,y=longitude)
+}
+biologist(100)
 
+# 15 
+dead <- function(x){
+  latitude <- c(5,10,15,20,25)
+  longitude <- c(5,10,15,20,25)
+  distance <- sqrt((latitude*latitude) + (longitude*longitude))
+  for(i in latitude){
+    latitude[i] <- latitude[i-1] + rnorm(1,0,1)
+  }
+  for(i in longitude){
+    longitude[i] <- longitude[i-1] + rnorm(1,0,1)
+  }
+  print(distance)
+  if(distance[i] >= 15){
+    return(i)
+    break
+  }
+  plot(x=latitude,y=longitude)
+}
+
+dead(100)
